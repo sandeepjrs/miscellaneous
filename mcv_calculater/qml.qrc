@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>StextBox.qml</file>
+        <file>Sbutton.qml</file>
+        <file>StextOutput.qml</file>
+        <file>SspinBox.qml</file>
+    </qresource>
+</RCC>
