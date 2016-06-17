@@ -17,6 +17,12 @@ ApplicationWindow {
     height: 480
     title: qsTr("Hello World")
 
+    MouseArea
+    {
+      anchors.fill: parent
+      onClicked: { console.log("hello mouse")}
+    }
+
     menuBar: MenuBar {
         Menu {
             title: qsTr("File")
@@ -45,22 +51,24 @@ ApplicationWindow {
 
             SspinBox
             {
-                id : msb
+                id : val1
+                ovalue:val1.ovalue
 
 
-                onGetValue:
-                {
-                    console.log(msb.ovalue)
-                }
+            }
+
+            SspinBox
+            {
+                id : val2
+                ovalue: val2.ovalue
+
+
             }
 
             StextBox
             {
-                id: value2
-                dispayTextInside: "second no."
-                value: 0
+                x:5
             }
-
 
 
             StextOutput
@@ -81,7 +89,7 @@ ApplicationWindow {
                 dispayTextInside: "+"
                 onPclicked:
                 {
-                    //mainapp.rawValues(value1.dispayTextInside,value2.value,1);
+                    rawValues(val1.ovalue,val2.ovalue,1);
                     console.log("+ clicked")
                 }
             }

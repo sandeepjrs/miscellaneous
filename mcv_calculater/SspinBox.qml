@@ -31,15 +31,6 @@ Rectangle {
             getValue(sb.value)
         }
 
-        onActiveFocusChanged:
-        {
-            ovalue= sb.value
-            getValue(sb.value)
-           console.log("heloo spin")
-        }
-
-
-
 
     }
 
