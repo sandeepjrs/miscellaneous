@@ -12,7 +12,7 @@ Rectangle {
 
     Text {
 
-        text: qsTr(displayText)
+        text: displayText
     }
 
 }

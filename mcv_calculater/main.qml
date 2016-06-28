@@ -12,6 +12,11 @@ ApplicationWindow {
     id:mainapp
     signal rawValues(int x,int y,int z)
 
+    property real box1
+    property real box2
+
+
+
     visible: true
     width: 640
     height: 480
@@ -19,8 +24,8 @@ ApplicationWindow {
 
     MouseArea
     {
-      anchors.fill: parent
-      onClicked: { console.log("hello mouse")}
+        anchors.fill: parent
+        onClicked: { console.log("hello mouse")}
     }
 
     menuBar: MenuBar {
@@ -49,32 +54,46 @@ ApplicationWindow {
             id: row1
 
 
-            SspinBox
+            StextBox
             {
-                id : val1
-                ovalue:val1.ovalue
+
+                id : value1
 
 
-            }
+                onSValueChaged:
+                {
+                    box1= svalue
+                    console.log("box1 =", box1)
 
-            SspinBox
-            {
-                id : val2
-                ovalue: val2.ovalue
-
+                }
 
             }
 
             StextBox
             {
-                x:5
+                id : value2
+                onSValueChaged:
+                {
+                    box2= svalue
+                }
+
             }
+
 
 
             StextOutput
             {
 
-                displayText: cal_result
+                id : resOut
+                property real jug
+
+                //displayText: myyCalModel_man.man(1,2,3,4)
+
+
+
+
+
+
             }
 
         }
@@ -89,8 +108,12 @@ ApplicationWindow {
                 dispayTextInside: "+"
                 onPclicked:
                 {
-                    rawValues(val1.ovalue,val2.ovalue,1);
-                    console.log("+ clicked")
+                    rawValues(box1,box2,1);
+
+                    resOut.jug = myyCalModel_man.getResult()
+                    resOut.displayText = resOut.jug
+                    console.log("+ clicked", resOut.jug)
+
                 }
             }
 
@@ -115,5 +138,10 @@ ApplicationWindow {
                 }
             }
         }
+    }
+
+    function updateBox()
+    {
+
     }
 }

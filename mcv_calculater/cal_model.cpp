@@ -26,6 +26,8 @@ Cal_model::Cal_model(QObject *parent) : QObject(parent)
 
 int Cal_model::getResult()
 {
+
+    qWarning()<<"helo get result new" ;
     return result;
 }
 
@@ -40,6 +42,8 @@ void Cal_model::selector(int a, int b, int i)
     case 1:
     {
         add(a,b);
+        qWarning()<<"the add result is "<<result;
+
         break;
     }
 
@@ -60,6 +64,11 @@ void Cal_model::selector(int a, int b, int i)
     default:
         break;
     }
+}
+
+void Cal_model::man(int c, int d, int e, int f)
+{
+    qWarning()<<"hello man";
 }
 
 

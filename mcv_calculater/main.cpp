@@ -22,15 +22,15 @@ int main(int argc, char *argv[])
 
     //    engine.rootContext()->setContextProperty("testPurpose",sandeep);
 
-        engine.rootContext()->setContextProperty("cal_result",myCalModel.getResult());
+        //engine.rootContext()->setContextProperty("cal_result",myCalModel.getResult());
+        engine.rootContext()->setContextProperty("myyCalModel_man",&myCalModel);
 
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     QObject *rootObject = engine.rootObjects().first();
 
-//     QObject::connect(rootObject,SIGNAL(startSignal()),&repApp,SLOT(startAction()));
-        QObject::connect(rootObject,SIGNAL(rawValues(int,int,int)),&myCalModel,SLOT(selector(int,int,int)));
+    QObject::connect(rootObject,SIGNAL(rawValues(int,int,int)),&myCalModel,SLOT(selector(int,int,int)));
 
             return app.exec();
 }

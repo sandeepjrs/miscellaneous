@@ -9,13 +9,19 @@ class Cal_model: public QObject
 public:
 
     Cal_model(QObject *parent = 0);
-    int getResult();
+    Q_INVOKABLE void man(int ,int ,int ,int );
+    Q_INVOKABLE int getResult();
+
 
 
     //    ~Cal_model();
 
 public slots:
+
     void selector(int a, int b, int i);
+
+
+
 
 
 private:

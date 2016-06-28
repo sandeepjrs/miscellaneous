@@ -7,6 +7,7 @@ import QtQuick.Controls 1.4
 Rectangle {
     property string dispayTextInside
     property real value: value
+    signal sValueChaged(int svalue)
 
 
 
@@ -22,16 +23,17 @@ Rectangle {
 
         onDisplayTextChanged:
         {
-            dispayTextInside=txtfld.text
-          console.log(dispayTextInside)
-            str2int()
+            //dispayTextInside=txtfld.text
+            sValueChaged(str2int(txtfld.text))
+
         }
 
-        function str2int()
+        function str2int(intValue)
         {
-            var a
-            a= Number(dispayTextInside)
-            console.log(a)
+            var conValue
+            conValue= Number(intValue)
+            console.log(conValue)
+            return conValue
         }
 
 
